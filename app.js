@@ -41,7 +41,7 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.get("/", (req, res, next) => {
   return res.status(200).send({
-    message: "API Health Check",
+    message: "API Health Check : Working Perfectly",
   });
 });
 
