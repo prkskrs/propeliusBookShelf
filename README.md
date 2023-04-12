@@ -15,16 +15,17 @@ npm (version 6 or higher)
 3. Run the following command to install the dependencies:
 
 
-### npm install
+### "npm install"
 
 ## Starting the Application
 Once the installation is complete, you can start the application using the following command:
 
-### npm start
+### "npm start"
 
 This will start the application and you should see a message in your terminal similar to:
 
 Server is running on port 8000
+
 You can now access the application by opening your web browser and navigating to http://localhost:8000.
 
 ## Usage
