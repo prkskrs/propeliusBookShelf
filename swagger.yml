@@ -1,0 +1,152 @@
+openapi: 3.0.0
+info:
+  title: BookShelf API's
+  version: 1.0.0
+servers:
+  - url: http://localhost:8000
+paths:
+  /api/v1/auth/signup:
+    patch:
+      summary: Register User
+      parameters:
+        - in: body
+          name: User Registration
+          description: End point for User Registration
+          required: true
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              email:
+                type: string
+              password:
+                type: string
+      responses:
+        200:
+
+  /api/v1/auth/login:
+    patch:
+      summary: Login to the application
+      parameters:
+        - in: body
+          name: User Login
+          description: This Endpoint takes user email and password to login
+          required: true
+          schema:
+            type: object
+            properties:
+              email:
+                type: string
+              password:
+                type: string
+      responses:
+        200:
+        description: This Endpoint takes user email and password to login
+
+  /api/v1/auth/logout:
+    get:
+      summary: Logout
+      responses:
+        200:
+        description: This Endpoint for logout by removing cookies.
+
+  /api/v1/auth/user-details:
+    get:
+      summary: Get details of logged in user
+      responses:
+        200:
+        description: This Endpoint give details of loggedIn user
+
+  /api/v1/book/addBook:
+    post:
+      summary: Add a book
+      parameters:
+        - in: body
+          name: book
+          description: The book object to add
+          required: true
+          schema:
+            type: object
+            properties:
+              title:
+                type: string
+              author:
+                type: string
+              category:
+                type: ObjectId
+              readStatus:
+                type: string
+              coverImage:
+                type: string
+      responses:
+        200:
+          description: Using this endpoint, we can add books. This API contains the mandatory fields title, author, publication_date, and description.
+  
+  /api/v1/book:
+    get:
+      summary: getAllBook
+      parameters:
+        - in: query
+          name: categoryId
+          description: The category of books to filter by categoryId
+          schema:
+            type: string
+        - in: query
+          name: search
+          description: The search term to filter by title and author name.
+          schema:
+            type: string
+        - in: query
+          name: page
+          description: The page number to retrieve
+          schema:
+            type: integer
+        - in: query
+          name: limit
+          description: The limit define particular number of doc per page
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Using this endpoint, you can get all book as well as you can filter using search and by categoryId.
+  
+  /api/v1/category/addCategory:
+    post:
+      summary: Add a category
+      parameters:
+        - in: body
+          name: category
+          description: The category object to add
+          required: true
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+      responses:
+        200:
+          description: Using this endpoint, we can add category. This API contains the mandatory field name.
+  
+  /api/v1/category:
+    get:
+      summary: getAllCategory
+      parameters:
+        - in: query
+          name: search
+          description: The search term to filter by category name.
+          schema:
+            type: string
+        - in: query
+          name: page
+          description: The page number to retrieve
+          schema:
+            type: integer
+        - in: query
+          name: limit
+          description: The limit define particular number of doc per page
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Using this endpoint, you can get all category as well as you can filter using search and can do pagination.
