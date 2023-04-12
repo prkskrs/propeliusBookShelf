@@ -28,6 +28,8 @@ Server is running on port 8000
 
 You can now access the application by opening your web browser and navigating to http://localhost:8000.
 
+Swagger Docs : http://localhost:8000/api-docs
+
 ## Usage
 The application provides a simple web interface that allows you to perform some basic operations. You can use the web interface to create, read, update and delete records in the database.
 
